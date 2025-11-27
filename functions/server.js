@@ -20,7 +20,7 @@ router.post("/chatbot", async (req, res) => {
     const API_URL =
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
-    const response = await fetch(API_URL, {
+    const response = await fetch("/.netlify/function/server/chatbot", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ router.post("/chatbot", async (req, res) => {
           {
             parts: [
               {
-                text: message,
+                message: message,
               },
             ],
           },
